@@ -1,0 +1,7 @@
+week 1 : Linus , bash scripting , networking , git
+week 2 : Docker
+week 3 : Docker Advanced + python
+week 4 : Kubernetes
+week 5 : Kubernetes advance 
+week 6 : CI/CD
+week 7 : Polish and revision
