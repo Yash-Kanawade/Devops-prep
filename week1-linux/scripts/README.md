@@ -12,7 +12,8 @@ Analyses application log files and generate a health summary report.
 - Lists all error messages
 - Prints health and unhealthy status
 - Prints all the WARN messages including the count of WARN messgae
-echo ""
+
+
 ##skills demonstrated
 - Bash scripting : function , conditionals, loop , exit codes
 - Text Processing : grep ,cut ,ec
