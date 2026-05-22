@@ -1,0 +1,5 @@
+.DS_STORE
+*.LOG
+.NEV
+node_modules/
+--pycache--/
