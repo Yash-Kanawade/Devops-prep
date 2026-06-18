@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  health-server:
+    build: .
+    container_name: ptc-health-server
+    ports: 
+      - "${PORT}:${PORT}"
+    environment:
+      - APP_NAME=${APP_NAME}
+      - APP_ENV=${APP_ENV}
+      - APP_VERSION=${APP_VERSION}
+      - PORT=${PORT}
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health');urllib.request.urlopen('http://localhost:8000/info')"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+networks:
+  default:
+    name: ptc-network
