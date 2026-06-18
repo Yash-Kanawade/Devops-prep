@@ -4,7 +4,7 @@ import logging
 
 from fastapi import FastAPI, HTTPException
 
-from metrics import (
+from app.metrics import (
     get_all_metrics,
     get_cpu_metrics,
     get_disk_metrics,
