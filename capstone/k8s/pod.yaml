@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ptc-monitor-pod
+  labels:
+    app: ptc-monitor
+
+spec:
+  containers:
+  - name: ptc-monitor
+    image: yashkanawade03/ptc-monitor:1.0.0
+    ports:
+    - containerPort: 8080
+    env:
+    - name: APP_NAME
+      value: "PTC-Monitor"
+    - name: APP_ENV
+      value: "development"
+    - name: APP_VERSION
+      value: "1.0.0"

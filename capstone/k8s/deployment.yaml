@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ptc-monitor
+  labels:
+    app: ptc-monitor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ptc-monitor
+  template:
+    metadata:
+      labels:
+        app: ptc-monitor
+    spec:
+      containers:
+      - name: ptc-monitor
+        image: yashkanawade03/ptc-monitor:1.0.0
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: ptc-monitor-config
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
