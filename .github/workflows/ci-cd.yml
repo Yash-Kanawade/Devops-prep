@@ -76,4 +76,4 @@ jobs:
       run: |
         echo "✅ Pipeline complete"
         echo "Image: ${{ env.IMAGE_NAME }}:${{ steps.sha.outputs.sha_short }}"
-        echo "Also tagged as: ${{ env.IMAGE_NAME }}:latest"
+        echo "Also tagged as: ${{ env.IMAGE_NAME }}:latest"# CI/CD Pipeline
