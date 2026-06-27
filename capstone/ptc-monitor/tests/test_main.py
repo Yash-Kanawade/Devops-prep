@@ -48,19 +48,25 @@ def test_metrics_endpoint(client):
 def test_cpu_endpoint(client):
     response = client.get("/metrics/cpu")
     assert response.status_code == 200
-    assert "cpu" in response.json()
+    data = response.json()
+    assert "usage_percentage" in data
+    assert "core_count" in data
 
 
 def test_memory_endpoint(client):
     response = client.get("/metrics/memory")
     assert response.status_code == 200
-    assert "memory" in response.json()
+    data = response.json()
+    assert "total_memory" in data
+    assert "usage_percent" in data
 
 
 def test_disk_endpoint(client):
     response = client.get("/metrics/disk")
     assert response.status_code == 200
-    assert "disk" in response.json()
+    data = response.json()
+    assert "total_gb" in data
+    assert "usage_percent" in data
 
 
 def test_unknown_endpoint_returns_404(client):
