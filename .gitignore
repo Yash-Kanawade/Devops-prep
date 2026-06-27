@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 week_1/
 week_2/
+.venv/
+capstone/ptc-monitor/.venv/
