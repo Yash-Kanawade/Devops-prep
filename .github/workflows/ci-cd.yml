@@ -27,29 +27,16 @@ jobs:
       run: |
         cd capstone/ptc-monitor
         pip install -r requirements.txt
+        pip install "httpx==0.24.1" "pytest==7.4.0"
 
-    - name: Run smoke tests
+    - name: Run tests
       env:
         APP_NAME: test-app
         APP_ENV: test
         APP_VERSION: 1.0.0
       run: |
         cd capstone/ptc-monitor
-        python -c "from app.main import app; print('✅ App imports successfully')"
-        python -c "from app.metrics import get_all_metrics; print('✅ Metrics module OK')"
-        python -c "
-        import os
-        os.environ['APP_NAME'] = 'test'
-        os.environ['APP_ENV'] = 'test'
-        os.environ['APP_VERSION'] = '1.0.0'
-        from app.metrics import get_cpu_metrics, get_memory_metrics, get_disk_metrics
-        cpu = get_cpu_metrics()
-        mem = get_memory_metrics()
-        disk = get_disk_metrics()
-        print(f'✅ CPU metrics: {cpu}')
-        print(f'✅ Memory metrics: {mem}')
-        print(f'✅ Disk metrics: {disk}')
-        "
+        python -m pytest tests/ -v
 
   build-and-push:
     name: Build and push Docker image
