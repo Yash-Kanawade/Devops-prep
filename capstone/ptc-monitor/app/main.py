@@ -18,9 +18,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = FastAPI(
-    title="PTC Devops Monitoring Dashboard",
-    description="Real-time system metrics API build with python , docker , kubernetes , fastapi",
-    version=os.environ.get("APP_VERSION","1.0.0"),
+    title="Devops Monitoring Dashboard",
+    description="v2.0 - Real-time system metrics API with enhanced monitoring",
+    version=os.environ.get("APP_VERSION","2.0.0"),
 )
 
 @app.on_event("startup")
